@@ -1,0 +1,25 @@
+using SocialApi.Caching;
+using Xunit;
+
+namespace SocialTests;
+
+public class LRUCacheTests
+{
+    [Fact]
+    public void Put_Evicts_LeastRecentlyUsed()
+    {
+        // Arrange
+        var cache = new LRUCache<int, string>(2);
+
+        // Act
+        cache.Put(1, "A");
+        cache.Put(2, "B");
+        cache.Get(1);      // 1 becomes most recently used
+        cache.Put(3, "C"); // 2 should be evicted
+
+        // Assert
+        Assert.Equal("A", cache.Get(1));
+        Assert.Null(cache.Get(2));
+        Assert.Equal("C", cache.Get(3));
+    }
+}
