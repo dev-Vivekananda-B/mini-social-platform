@@ -2,7 +2,7 @@
 
 ## Setup Steps
 1. Ensure [.NET 8 SDK](https://dotnet.microsoft.com/download) is installed.
-2. Clone this repository: `git clone <repo-url>`
+2. Clone this repository: `git clone https://github.com/dev-Vivekananda-B/mini-social-platform.git`
 3. Run the API: `dotnet run --project SocialApi`
 4. Run Tests: `dotnet test`
 5. Run Benchmarks: `dotnet run --project CacheBenchmarks`
